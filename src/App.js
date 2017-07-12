@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Route} from 'react-router-dom';
 import * as BooksAPI from './BooksAPI'
 import SearchComponent from './SearchComponent';
 import ListComponent from './ListComponent';
 import './App.css'
 
-class BooksApp extends React.Component {
+class App extends React.Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -72,10 +73,24 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <ListComponent books={this.state.books} handleChange={this.handleChange.bind(this)}/>
+          <Route
+              exact path="/"
+              render={() => (
+                  <ListComponent
+                      books={this.state.books}
+                      handleChange={this.handleChange.bind(this)}
+                  />
+              )}
+          />
+          <Route
+              path="/search"
+              render={() => (
+                  <SearchComponent />
+              )}
+          />
       </div>
     )
   }
 }
 
-export default BooksApp
+export default App;
