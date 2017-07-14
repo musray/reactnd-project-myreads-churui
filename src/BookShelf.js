@@ -2,6 +2,9 @@ import React from 'react';
 import Selector from './Selector';
 
 class BookShelf extends React.Component {
+    componentWillMount() {
+        console.log(JSON.stringify(this.props.books))
+    }
     render() {
         return (
             <div className="bookshelf">
