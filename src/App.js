@@ -12,11 +12,10 @@ class App extends React.Component {
   };
 
   componentWillMount() {
-      const books = BooksAPI.getAll()
+      BooksAPI.getAll()
           .then(books => {
               this.setState({books})
           });
-      // this.setState({books: books})
   };
 
   handleChange = (book, status) => {
