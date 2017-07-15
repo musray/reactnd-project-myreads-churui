@@ -14,13 +14,13 @@ const ListComponent = (props) => {
                    <BookShelf
                        books={props.books}
                        title="Currently Reading"
-                       readingStatus="reading"
+                       readingStatus="currentlyReading"
                        handleChange={props.handleChange}
                    />
                    <BookShelf
                        books={props.books}
                        title="Want to Read"
-                       readingStatus="toRead"
+                       readingStatus="wantToRead"
                        handleChange={props.handleChange}
                    />
                    <BookShelf

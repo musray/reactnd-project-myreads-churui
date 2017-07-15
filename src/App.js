@@ -22,8 +22,8 @@ class App extends React.Component {
   handleChange = (book, status) => {
       this.setState((prevState) => ({
           books: prevState.books.map(b => {
-              if (b.title === book.title) {
-                  return Object.assign({}, b, {status: status})
+              if (b.id === book.id) {
+                  return Object.assign({}, b, {shelf: status})
               }
               return b;
           })

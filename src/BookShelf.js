@@ -2,9 +2,6 @@ import React from 'react';
 import Selector from './Selector';
 
 class BookShelf extends React.Component {
-    componentWillMount() {
-        console.log(JSON.stringify(this.props.books))
-    }
     render() {
         return (
             <div className="bookshelf">
@@ -12,12 +9,12 @@ class BookShelf extends React.Component {
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {this.props.books
-                            .filter(book => book.status === this.props.readingStatus)
-                            .map((book, index) => (
-                                <li key={index}>
+                            .filter(book => book.shelf === this.props.readingStatus)
+                            .map((book) => (
+                                <li key={book.id}>
                                     <div className="book">
                                         <div className="book-top">
-                                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: book.url }}></div>
+                                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
                                             <Selector book={ book } handleChange={this.props.handleChange}/>
                                         </div>
                                         <div className="book-title">{ book.title }</div>
